@@ -29,10 +29,14 @@
         gap: var(--space-lg);
     }
 
-    @media (max-width: 480px) {
-        .header,
-        .right,
+    /* mobile: primary nav lives in the bottom tab bar */
+    @media (max-width: 639px) {
         .nav {
+            display: none;
+        }
+
+        .header,
+        .right {
             gap: var(--space-md);
         }
     }

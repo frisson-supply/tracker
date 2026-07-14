@@ -4,6 +4,20 @@
         margin-bottom: var(--space-xl);
     }
 
+    /* facts left, visuals right on wide screens; stacked otherwise */
+    .layout {
+        display: grid;
+        gap: var(--space-xl);
+        grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 900px) {
+        .layout {
+            gap: var(--space-2xl);
+            grid-template-columns: 20rem 1fr;
+        }
+    }
+
     .meta {
         display: grid;
         gap: var(--space-xs) var(--space-lg);
@@ -64,10 +78,14 @@
     }
 
     .charts {
-        display: flex;
-        flex-direction: column;
+        display: grid;
         gap: var(--space-md);
-        margin-top: var(--space-xl);
+        grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+        margin-top: var(--space-md);
+    }
+
+    .charts:first-child {
+        margin-top: 0;
     }
 
     .laps {

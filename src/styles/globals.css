@@ -14,7 +14,7 @@ html {
 
         --radius: 0.5rem;
         --radius-sm: 0.25rem;
-        --container-width: 42rem;
+        --container-width: 64rem;
 
         --font-size-xs: 0.75rem;
         --font-size-sm: 0.875rem;
@@ -65,6 +65,13 @@ html {
         max-width: var(--container-width);
         padding: var(--space-xl) var(--space-md) var(--space-2xl);
         width: 100%;
+    }
+
+    /* clear the fixed bottom tab bar on mobile */
+    @media (max-width: 639px) {
+        main {
+            padding-bottom: calc(var(--space-2xl) + 3rem + env(safe-area-inset-bottom));
+        }
     }
 
     a {

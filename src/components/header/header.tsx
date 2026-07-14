@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { cookies } from 'next/headers';
 import { logout } from '@/lib/actions';
 import { SESSION_COOKIE, verifySession } from '@/lib/auth';
+import { TabBar } from '@/components/tab-bar/tab-bar';
 import styles from './header.module.css';
 
 export async function Header() {
@@ -19,12 +20,14 @@ export async function Header() {
                         <Link href="/upload">upload</Link>
                         <Link href="/gear">gear</Link>
                         <Link href="/stats">stats</Link>
-                        <form action={logout}>
-                            <button type="submit" className={styles.logout}>
-                                log out
-                            </button>
-                        </form>
                     </nav>
+                )}
+                {loggedIn && (
+                    <form action={logout}>
+                        <button type="submit" className={styles.logout}>
+                            log out
+                        </button>
+                    </form>
                 )}
                 <details className={styles.about}>
                     <summary aria-label="about this app">i</summary>
@@ -35,6 +38,7 @@ export async function Header() {
                     </p>
                 </details>
             </div>
+            {loggedIn && <TabBar />}
         </header>
     );
 }

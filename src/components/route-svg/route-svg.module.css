@@ -2,7 +2,8 @@
     .route {
         border: 1px solid var(--color-border);
         border-radius: var(--radius);
-        max-width: 24rem;
+        margin-bottom: var(--space-md);
+        max-width: 28rem;
         padding: var(--space-md);
         width: 100%;
     }
