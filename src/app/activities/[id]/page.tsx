@@ -5,15 +5,10 @@ import { currentUserId } from '@/lib/current-user';
 import { RouteSvg } from '@/components/route-svg/route-svg';
 import { Sparkline } from '@/components/sparkline/sparkline';
 import type { Lap, Metrics, Series } from '@/lib/fit';
+import { paceStr } from '@/lib/format';
 import styles from './page.module.css';
 
 export const dynamic = 'force-dynamic';
-
-function paceStr(minPerKm: number): string {
-    const m = Math.floor(minPerKm);
-    const s = Math.round((minPerKm - m) * 60);
-    return `${m}:${String(s).padStart(2, '0')}`;
-}
 
 export default async function ActivityDetail({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params;
@@ -127,13 +122,7 @@ export default async function ActivityDetail({ params }: { params: Promise<{ id:
             <div className={styles.charts}>
                 {series.alt && <Sparkline label="elevation" values={series.alt} unit="m" />}
                 {series.pace && (
-                    <Sparkline
-                        label="pace"
-                        values={series.pace}
-                        unit="/km"
-                        invert
-                        format={paceStr}
-                    />
+                    <Sparkline label="pace" values={series.pace} unit="/km" invert pace />
                 )}
                 {series.hr && <Sparkline label="heart rate" values={series.hr} unit="bpm" />}
                 {series.cad && <Sparkline label="cadence" values={series.cad} unit="spm" />}
