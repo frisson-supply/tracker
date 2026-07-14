@@ -12,19 +12,29 @@ export async function Header() {
             <Link href="/" className={styles.title}>
                 tracker
             </Link>
-            {loggedIn && (
-                <nav className={styles.nav}>
-                    <Link href="/activities/new">log</Link>
-                    <Link href="/upload">upload</Link>
-                    <Link href="/gear">gear</Link>
-                    <Link href="/stats">stats</Link>
-                    <form action={logout}>
-                        <button type="submit" className={styles.logout}>
-                            log out
-                        </button>
-                    </form>
-                </nav>
-            )}
+            <div className={styles.right}>
+                {loggedIn && (
+                    <nav className={styles.nav}>
+                        <Link href="/activities/new">log</Link>
+                        <Link href="/upload">upload</Link>
+                        <Link href="/gear">gear</Link>
+                        <Link href="/stats">stats</Link>
+                        <form action={logout}>
+                            <button type="submit" className={styles.logout}>
+                                log out
+                            </button>
+                        </form>
+                    </nav>
+                )}
+                <details className={styles.about}>
+                    <summary aria-label="about this app">i</summary>
+                    <p className={styles['about-panel']}>
+                        A privacy-first health &amp; activity tracker. Your workouts live in your
+                        own database — no ads, no tracking, no data shared with anyone. Self-hosted
+                        and open by design.
+                    </p>
+                </details>
+            </div>
         </header>
     );
 }

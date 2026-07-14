@@ -63,7 +63,8 @@ html {
     main {
         margin-inline: auto;
         max-width: var(--container-width);
-        padding: var(--space-2xl) var(--space-md);
+        padding: var(--space-xl) var(--space-md) var(--space-2xl);
+        width: 100%;
     }
 
     a {

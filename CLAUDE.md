@@ -22,6 +22,7 @@ pnpm add-user <name> <password>   # create an account (no signup page, on purpos
 ## Styling (same convention as ../blog-26)
 
 - `src/styles/globals.css`: `@layer reset, preflight, global, pages, components, overrides;` first line; grayscale tokens only — no accent color, no shadows, no gradients; system font stack.
+- **globals.css must be the first import in `src/app/layout.tsx`** (before any component import) — layer order is fixed by first occurrence, so if a component's module css loads first, `components` sorts before `global` and the reset's `* { margin: 0 }` silently beats component margins.
 - Co-located `*.module.css` per component wrapped in `@layer components { }`; page styles in `@layer pages { }`. No Tailwind, no UI library.
 - kebab-case files and folders under `src/`.
 
