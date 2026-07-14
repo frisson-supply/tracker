@@ -4,6 +4,8 @@ Personal fitness log — a minimal, self-hosted Strava replacement. Log activiti
 
 Next.js · Turso (SQLite) · CSS Modules · no UI libraries.
 
+Built for a handful of users — accounts are created from the CLI and there is no public signup, by design.
+
 ## Setup
 
 ```bash
